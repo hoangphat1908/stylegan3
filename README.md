@@ -97,6 +97,32 @@ img = G.synthesis(w, noise_mode='const', force_fp32=True)
 
 Please refer to [`gen_images.py`](./gen_images.py) for complete code example.
 
+## Results
+
+### Benefits of mirror augmentation and fine-tuning
+
+<a href="./docs/configurations.png"><img src="./docs/configurations.png"></img></a>
+
+- Fine-tuning has much faster FID convergence
+
+- Pretrained model from a similar dataset (human faces) proved to be beneficial
+
+- Mirror augmentation may help on longer training runs
+
+### Effects of batch size on training
+
+<a href="./docs/batch.png"><img src="./docs/batch.png"></img></a>
+
+- Training with larger batch sizes achieve better FID
+- Time required to reach optimal FID is also lower with larger batch sizes
+
+### Training time speedup of multi-GPU setup
+
+<a href="./docs/speedup.png"><img src="./docs/speedup.png"></img></a>
+
+- RTX8000 has better speed-up scaling than V100
+- Training time on V100 are about 20% faster than on RTX8000
+
 
 ## License
 
